@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+body {
+  background-color: #fff0f5;
+  font-family: 'Lato', sans-serif;
+  background-image: radial-gradient(#fecdd8 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #ffe4ed; }
+::-webkit-scrollbar-thumb { background: #FFC0CB; border-radius: 10px; }
+
+.glass-card {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,192,203,0.4);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
