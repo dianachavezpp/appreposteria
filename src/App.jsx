@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/Login'
-import CategoriasPage from './pages/CupcakesPage'
-import RecetasPage from './pages/PedidosPage'
+import CupcakesPage from './pages/CupcakesPage'
+import PedidosPage from './pages/PedidosPage'
 import Navbar from './components/Navbar'
 
 function PrivateRoute({ children }) {
@@ -11,7 +11,12 @@ function PrivateRoute({ children }) {
 
 function Layout({ children }) {
   return (
-    <div style={{ minHeight: '100vh', background: '#fff0f5', backgroundImage: 'radial-gradient(#fecdd8 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
+    <div style={{
+      minHeight: '100vh',
+      background: '#fff0f5',
+      backgroundImage: 'radial-gradient(#fecdd8 1px, transparent 1px)',
+      backgroundSize: '24px 24px'
+    }}>
       <Navbar />
       <main style={{ maxWidth: '1100px', margin: '0 auto', padding: '24px 24px 60px' }}>
         {children}
@@ -25,18 +30,18 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/categorias" element={
+        <Route path="/cupcakes" element={
           <PrivateRoute>
-            <Layout><CategoriasPage /></Layout>
+            <Layout><CupcakesPage /></Layout>
           </PrivateRoute>
         } />
-        <Route path="/recetas" element={
+        <Route path="/pedidos" element={
           <PrivateRoute>
-            <Layout><RecetasPage /></Layout>
+            <Layout><PedidosPage /></Layout>
           </PrivateRoute>
         } />
-        <Route path="/" element={<Navigate to="/recetas" replace />} />
-        <Route path="*" element={<Navigate to="/recetas" replace />} />
+        <Route path="/" element={<Navigate to="/cupcakes" replace />} />
+        <Route path="*" element={<Navigate to="/cupcakes" replace />} />
       </Routes>
     </BrowserRouter>
   )
